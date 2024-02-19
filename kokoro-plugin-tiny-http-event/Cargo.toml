@@ -1,0 +1,10 @@
+[package]
+name = "kokoro-plugin-tiny-http-event"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+kokoro = "0.0.5"
+tiny_http = "0.12.0"
