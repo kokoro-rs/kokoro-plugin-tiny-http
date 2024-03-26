@@ -165,9 +165,7 @@ dependencies = [
 
 [[package]]
 name = "kokoro"
-version = "0.0.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "90da8576f31a99e12888756968ce56bfe15340efe72207e3e82e016e378f76c9"
+version = "0.0.6"
 dependencies = [
  "kokoro-core",
  "kokoro-default-impl",
@@ -178,9 +176,7 @@ dependencies = [
 
 [[package]]
 name = "kokoro-core"
-version = "0.0.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "03f011b933f143cbb1a2cdffc215faa0a569ce009ac62496b33e8921b1a02ded"
+version = "0.0.6"
 dependencies = [
  "dashmap",
  "parking_lot",
@@ -189,9 +185,7 @@ dependencies = [
 
 [[package]]
 name = "kokoro-default-impl"
-version = "0.0.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8a1c099b78e680a8ce9acb3afaae673cc48b5eed7d609b2da43cf8f371c0c010"
+version = "0.0.6"
 dependencies = [
  "anyhow",
  "kokoro-core",
@@ -201,9 +195,7 @@ dependencies = [
 
 [[package]]
 name = "kokoro-dynamic-plugin"
-version = "0.0.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5dc3a947ae55687f8a0448e04c9d2e9feea88edda6e2a35ddbab8b1366831795"
+version = "0.0.6"
 dependencies = [
  "kokoro-core",
  "kokoro-default-impl",
@@ -215,20 +207,17 @@ dependencies = [
 
 [[package]]
 name = "kokoro-flume-channel"
-version = "0.0.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aca4fd449de365fb3fdc6aa268d845f442be8e01e6fe95723191ddf2ba99ad0f"
+version = "0.0.4"
 dependencies = [
  "flume",
  "kokoro-core",
+ "kokoro-default-impl",
  "parking_lot",
 ]
 
 [[package]]
 name = "kokoro-macros"
-version = "0.0.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a87b4c8c6ee4a368b8a75fa2816f24163829c372192659e9ab837b44682ea20b"
+version = "0.0.6"
 dependencies = [
  "proc-macro2",
  "quote",

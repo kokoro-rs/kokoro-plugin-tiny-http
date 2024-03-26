@@ -7,7 +7,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-kokoro = "0.0.5"
+kokoro = { version = "0.0.6", path = "../kokoro" }
 serde = { version = "1.0.196", features = ["derive"] }
 kokoro-plugin-tiny-http-event = {path = "./kokoro-plugin-tiny-http-event"}
 

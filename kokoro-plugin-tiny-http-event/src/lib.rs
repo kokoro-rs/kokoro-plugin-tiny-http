@@ -1,6 +1,12 @@
 use http::{HTTPVersion, Header, Method, Response};
-use kokoro::prelude::*;
-use std::{io::Read, net::SocketAddr, ops::Deref, sync::RwLock};
+use kokoro::{core::query::Query, prelude::*};
+use std::{
+    io::Read,
+    marker::PhantomData,
+    net::SocketAddr,
+    ops::Deref,
+    sync::{Arc, RwLock},
+};
 pub use tiny_http as http;
 use tiny_http::Request;
 #[derive(Event)]
@@ -51,4 +57,43 @@ impl HttpRequest {
     }
 }
 
+pub trait Path {
+    const P: &'static str;
+}
+pub struct PathQuery<P: Path> {
+    event: Arc<HttpRequest>,
+    _p: PhantomData<P>,
+}
+impl<P: Path> Deref for PathQuery<P> {
+    type Target = HttpRequest;
 
+    fn deref(&self) -> &Self::Target {
+        &self.event
+    }
+}
+impl<P: Path> Query<HttpRequest> for PathQuery<P> {
+    fn create(n: Arc<HttpRequest>) -> Self {
+        Self {
+            event: n,
+            _p: PhantomData,
+        }
+    }
+
+    fn sub(n: &dyn Event) -> bool {
+        if let Some(e) = n.downcast_ref::<HttpRequest>() {
+            e.url == P::P
+        } else {
+            false
+        }
+    }
+}
+#[macro_export]
+macro_rules! path {
+    ($name:ident,$path:expr) => {
+        #[derive(Debug)]
+        struct $name;
+        impl Path for $name {
+            const P: &'static str = $path;
+        }
+    };
+}

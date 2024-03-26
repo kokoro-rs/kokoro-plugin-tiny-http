@@ -2,9 +2,9 @@ use kokoro::{default_impl::plugin::anyhow::anyhow, prelude::*};
 use kokoro_plugin_tiny_http_event::*;
 use serde::Deserialize;
 #[derive(Deserialize, DynamicPlugin)]
-struct TinyHttp {
-    host: Option<String>,
-    port: Option<u32>,
+pub struct TinyHttp {
+    pub host: Option<String>,
+    pub port: Option<u32>,
 }
 impl Create for TinyHttp {
     fn create(config: Option<toml::Value>) -> Result<Self> {
@@ -27,7 +27,7 @@ impl Plugin for TinyHttp {
         let addr = format!("{host}:{port}");
         let client = http::Server::http(addr.clone()).or(Err(anyhow!("服务启动失败")))?;
         ctx.spawn(move |ctx, s| {
-            while !s.is() {
+            for _ in s {
                 let r = client.recv();
                 if let Ok(rq) = r {
                     ctx.publish(HttpRequest::new(rq));
