@@ -166,6 +166,7 @@ dependencies = [
 [[package]]
 name = "kokoro"
 version = "0.0.6"
+source = "git+https://github.com/kokoro-rs/kokoro.git#158e99c3823dc24b15273e31d6ae116b362654e7"
 dependencies = [
  "kokoro-core",
  "kokoro-default-impl",
@@ -177,6 +178,7 @@ dependencies = [
 [[package]]
 name = "kokoro-core"
 version = "0.0.6"
+source = "git+https://github.com/kokoro-rs/kokoro.git#158e99c3823dc24b15273e31d6ae116b362654e7"
 dependencies = [
  "dashmap",
  "parking_lot",
@@ -186,6 +188,7 @@ dependencies = [
 [[package]]
 name = "kokoro-default-impl"
 version = "0.0.6"
+source = "git+https://github.com/kokoro-rs/kokoro.git#158e99c3823dc24b15273e31d6ae116b362654e7"
 dependencies = [
  "anyhow",
  "kokoro-core",
@@ -196,6 +199,7 @@ dependencies = [
 [[package]]
 name = "kokoro-dynamic-plugin"
 version = "0.0.6"
+source = "git+https://github.com/kokoro-rs/kokoro.git#158e99c3823dc24b15273e31d6ae116b362654e7"
 dependencies = [
  "kokoro-core",
  "kokoro-default-impl",
@@ -208,6 +212,7 @@ dependencies = [
 [[package]]
 name = "kokoro-flume-channel"
 version = "0.0.4"
+source = "git+https://github.com/kokoro-rs/kokoro.git#158e99c3823dc24b15273e31d6ae116b362654e7"
 dependencies = [
  "flume",
  "kokoro-core",
@@ -218,6 +223,7 @@ dependencies = [
 [[package]]
 name = "kokoro-macros"
 version = "0.0.6"
+source = "git+https://github.com/kokoro-rs/kokoro.git#158e99c3823dc24b15273e31d6ae116b362654e7"
 dependencies = [
  "proc-macro2",
  "quote",
