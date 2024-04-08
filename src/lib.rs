@@ -1,5 +1,5 @@
 use kokoro::{default_impl::plugin::anyhow::anyhow, prelude::*};
-use kokoro_plugin_tiny_http_event::*;
+pub use kokoro_plugin_tiny_http_event::*;
 use serde::Deserialize;
 #[derive(Deserialize, DynamicPlugin)]
 pub struct TinyHttp {
